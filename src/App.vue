@@ -1,28 +1,52 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Album :page="page"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Album from './components/Album.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
+    Album
+  },
+  data: function() {
+    return {
+      page: [{
+        title: '带了精油来',
+        pics: [
+          'https://2019pic.9514tu.club/10/2019/07/06/15500561.jpg',
+          'https://2019pic.9514tu.club/10/2019/07/06/15500693.jpg'
+        ]
+      }]
+    }
+  },
 }
 </script>
 
 <style>
-#app {
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+html {
+  font-size: 16px;
+}
+body {
+  background-color: #030303;
+}
+a {
+  text-decoration: none;
+}
+a:link,a:visited,a:active {
+  color: #f90;
 }
 </style>
