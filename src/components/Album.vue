@@ -44,6 +44,13 @@ export default {
     }
   },
   mounted () {
+    this.$http.get('/album/page/' + this.pageNum).then((res) => {
+      console.log('网络请求成功');
+      console.log(res);
+    }).catch(err => {
+      console.log('网络请求错误');
+      console.log(err);
+    })
     alert('mounted')
   }
 }
