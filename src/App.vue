@@ -1,28 +1,15 @@
 <template>
   <div id="app">
-    <Album :page="page"/>
+    <Album />
   </div>
 </template>
 
 <script>
-import Album from './components/Album.vue'
+import Album from '@/components/Album'
 
 export default {
   name: 'app',
-  components: {
-    Album
-  },
-  data: function() {
-    return {
-      page: [{
-        title: '带了精油来',
-        pics: [
-          'https://2019pic.9514tu.club/10/2019/07/06/15500561.jpg',
-          'https://2019pic.9514tu.club/10/2019/07/06/15500693.jpg'
-        ]
-      }]
-    }
-  },
+  components: {Album}
 }
 </script>
 
