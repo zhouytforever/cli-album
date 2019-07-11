@@ -12,8 +12,6 @@ export default {
     }
   },
   computed: {
-    preDisabled: ({currentIndex, page}) => currentIndex === 0 || page.length === 0,
-    sufDisabled: ({currentIndex, page}) => currentIndex === page.length,
     current: ({ currentIndex, page }) => page[currentIndex] ||  { title: 'loading 。。。'},
     pre: ({ currentIndex, page }) => {
       if(page.length === 0) {
@@ -31,12 +29,15 @@ export default {
   methods: {
     async next () {
       this.$refs.picGroup.$el.scroll(0, 0)
-      const { currentIndex, page, pageNum } = this.page
-      if(currentIndex === page.length) {
+      const { currentIndex, page, pageNum } = this
+      if(currentIndex<page.length -2){
+        this.currentIndex ++
+      }
+      else {
         const {data} = await a.findOnePage(pageNum + 1)
-        console.log('data', data);
         if(!data || data.length === 0) return
-        this.currentIndex += 1
+        this.currentIndex ++
+        this.pageNum ++
         this.page = page.concat(data)
       }
     },
