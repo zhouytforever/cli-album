@@ -1,17 +1,8 @@
 <template>
   <div id="app">
-    <Album />
+    <router-view/>
   </div>
 </template>
-
-<script>
-import Album from '@/components/Album'
-
-export default {
-  name: 'app',
-  components: {Album}
-}
-</script>
 
 <style>
 *,
