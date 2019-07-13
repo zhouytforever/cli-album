@@ -3,7 +3,7 @@
     <header>
       <h3>{{current.title}}</h3>
     </header>
-    <PicGroup :pics="current.pics" ref="picGroup"></PicGroup>
+    <PicGroup :pics="current.imgUrls" ref="picGroup"></PicGroup>
     <a class="pre" @click="before"  v-show="showPre">
       <span class="arrow-left"></span>
       <span class="title">{{pre.title}}</span>
