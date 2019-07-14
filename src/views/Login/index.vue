@@ -1,24 +1,34 @@
 <template>
   <div class="main">
-    <form @submit="onSubmit">
-      <label for="email">Email</label>
-      <input id="email" type="" name="email">
-      <label for="passwd">密码</label>
-      <input id="passwd" type="password" name="passwd">
-      <button type="submit">提交</button>
-      <button type="reset">重置</button>
-    </form>
-    <a class="regist" href="/regist">去注册</a>
+    <el-form :model="form" :rules="rules" ref="form">
+      <el-form-item label="QQ：" prop="email">
+        <el-input v-model="form.email"></el-input>
+      </el-form-item>
+      <el-form-item label="密码：" prop="passwd">
+        <el-input v-model="form.passwd" type="password"></el-input>
+      </el-form-item>
+      <el-form-item label="验证码（QQ邮箱查收）：" prop="validCode">
+        <el-input v-model="form.validCode"></el-input>
+      </el-form-item>
+      <el-from-item>
+        <el-button type="primary" @click="onSubmit">确认</el-button>
+      </el-from-item>
+    </el-form>
   </div> 
 </template>
 <script>
 import a from '@/utils/api'
 export default {
   name: 'Login',
-  data: function() {
+  data() {
     return {
-      email: '',
-      passwd: '',
+      rules: {
+      },
+      form: {
+        email: '',
+        passwd: '',
+        validCode:  ''
+      }
     }
   },
   methods: {
@@ -30,4 +40,11 @@ export default {
 }
 </script>
 <style scoped>
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 8vh;
+}
 </style>

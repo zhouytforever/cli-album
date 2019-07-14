@@ -21,10 +21,4 @@ html {
 body {
   background-color: #030303;
 }
-a {
-  text-decoration: none;
-}
-a:link,a:visited,a:active {
-  color: #f90;
-}
 </style>
