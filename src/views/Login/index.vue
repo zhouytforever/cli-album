@@ -7,17 +7,18 @@
       <el-form-item label="密码：" prop="passwd">
         <el-input v-model="form.passwd" type="password"></el-input>
       </el-form-item>
-      <el-form-item label="验证码（QQ邮箱查收）：" prop="validCode">
-        <el-input v-model="form.validCode"></el-input>
+      <el-form-item label="邀请码（QQ邮箱查收）：" prop="invitCode">
+        <el-input v-model="form.invitCode"></el-input>
       </el-form-item>
-      <el-from-item>
+      <el-form-item>
         <el-button type="primary" @click="onSubmit">确认</el-button>
-      </el-from-item>
+      </el-form-item>
     </el-form>
   </div> 
 </template>
 <script>
-import a from '@/utils/api'
+import a from './api'
+
 export default {
   name: 'Login',
   data() {
@@ -27,14 +28,14 @@ export default {
       form: {
         email: '',
         passwd: '',
-        validCode:  ''
+        invitCode:  ''
       }
     }
   },
   methods: {
-    onSubmit(params) {
-      console.log(params)
-      console.log(a);
+    onSubmit() {
+      this.$refs.form.validate()
+      a.login(this.form)
     }
   }
 }
