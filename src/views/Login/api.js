@@ -1,5 +1,5 @@
-import ax from '@/utils/api'
+import api from '@/utils/api'
 
 export default {
-  login: (params) => ax.post('/login',params),
+  login: (params) => api.post('/login', params),
 }

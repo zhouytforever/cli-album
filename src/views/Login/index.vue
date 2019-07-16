@@ -33,9 +33,10 @@ export default {
     }
   },
   methods: {
-    onSubmit() {
-      this.$refs.form.validate()
-      a.login(this.form)
+    async onSubmit() {
+      console.log('表单内容', this.form)
+      const result = await a.login(this.form)
+      console.log(result.data)
     }
   }
 }
